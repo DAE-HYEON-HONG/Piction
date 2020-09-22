@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="c75e7be2-e945-4035-b9e1-f6572a7a5cd0" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/john4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/robots.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CSS/App.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CSS/LoginDesign.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CSS/PictionBig.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CSS/RegisterAdd.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CSS/Trending.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CSS/banner.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CSS/footer.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CSS/genre.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CSS/headerComponents.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CSS/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CSS/modalRegister.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/HomePage/Banner.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/HomePage/Footer.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/HomePage/Genre.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/HomePage/LoginDesign.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/HomePage/PictionBig.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/HomePage/RegisterAdd.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/HomePage/Trending.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/HomePage/headerComponent.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Session/Server/models(node시큐라이즈사용시)/User.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Session/Server/models(node시큐라이즈사용시)/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Session/Server/server.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Session/auth/api/auth.ctrl.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Session/auth/auth.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/atoms/Choice.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/atoms/GenreListItem.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/atoms/MenuItems.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/atoms/SearchItemList.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/atoms/TrendingItems.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/atoms/bannerImageViewer.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/img/ICON_Arrow-Down.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/img/ICON_Exit.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/img/ICON_Genre-items.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/img/ICON_GrayScale.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/img/ICON_User.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/img/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/img/piction-big.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/language/en.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/language/i18n.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/language/ko.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dataBaseConfig.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serviceWorker.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/setupTests.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1hoqkzRxSIumRuhP7J7qOHwUpvP" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c75e7be2-e945-4035-b9e1-f6572a7a5cd0" name="Default Changelist" comment="" />
+      <created>1600687940575</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1600687940575</updated>
+      <workItem from="1600687949470" duration="141000" />
+      <workItem from="1600688148787" duration="16000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+</project>
