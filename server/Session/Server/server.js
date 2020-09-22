@@ -32,7 +32,7 @@ app.post("/api/Login", (req, res) => {
 });
 
 app.post("/api/Register", upload.none(), (req, res) => {
-  let image = "/image/" + req.file.filename;
+  // let image = '/image/' + req.file.filename;
   let name = req.body.name;
   let id = req.body.id;
   let email = req.body.email;
@@ -51,7 +51,7 @@ app.post("/api/Register", upload.none(), (req, res) => {
         console.error(
           `쿼리문 안에 에러가 있습니다. (에러는 ${err} 입니다.):' ${query}, ${err}`
         );
-        throw err;
+        res.send(err);
       }
       console.log("데이터가 삽입되었습니다.");
     }

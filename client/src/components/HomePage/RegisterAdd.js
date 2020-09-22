@@ -24,9 +24,17 @@ class RegisterAdd extends React.Component {
   //이건 이메일 정규화 표현 할려고 하다 아직 덜 만들어짐.
   handleEmail(e) {
     e.preventDefault();
-    this.setState({
-      email: e.target.value,
-    });
+    const emailCheck = function (str) {
+      const ifEmail = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+      return ifEmail.test(str) ? true : false;
+    };
+    if (emailCheck !== false) {
+      this.setState({
+        email: e.target.value,
+      });
+    } else {
+      alert("이메일에 문제가 있습니다");
+    }
   }
 
   handleFormSubmit(e) {
@@ -54,7 +62,7 @@ class RegisterAdd extends React.Component {
 
   //이건 안에 있는 value값이 변경되는 것을 감지하는 이벤트
   handleValueChange(e) {
-    let nextState = {}; //state값을 변경함.
+    let nextState = {}; //state값을 변경하기 위한 값
     nextState[e.target.name] = e.target.value; //name값은 해당 jsx input태그에 있는 name값임. 그리고 그 value값이 변경시 맨 위에서 선언한 state에게 값을 전달.
     this.setState(nextState); // nextState를 이용해 값을 갱신함.
   }
@@ -131,7 +139,7 @@ class RegisterAdd extends React.Component {
               type="text"
               name="email"
               value={this.state.email}
-              onChange={this.handleValueChange}
+              onChange={this.handleEmail}
               className="name"
             />
             <button type="submit" className="submitBtn">
