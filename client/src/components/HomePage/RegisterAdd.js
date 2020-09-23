@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { withTranslation } from "react-i18next";
+import bcrypt from "bcryptjs";
 
 class RegisterAdd extends React.Component {
   // const {t} = useTranslation();
@@ -10,7 +11,6 @@ class RegisterAdd extends React.Component {
       userName: "",
       id: "",
       email: "",
-      emailCheck: "",
       password: "",
       profileImg: null,
       picFileName: "",
@@ -19,34 +19,60 @@ class RegisterAdd extends React.Component {
     this.handleFileChange = this.handleFileChange.bind(this);
     this.handleValueChange = this.handleValueChange.bind(this);
     this.addUser = this.addUser.bind(this);
+    // this.ValueChangePassword = this.ValueChangePassword.bind(this);
+    // this.emailCheck = this.emailCheck.bind(this);
   }
 
   //이건 이메일 정규화 표현 할려고 하다 아직 덜 만들어짐.
-  handleEmail(e) {
-    e.preventDefault();
-    const emailCheck = function (str) {
-      const ifEmail = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
-      return ifEmail.test(str) ? true : false;
-    };
-    if (emailCheck !== false) {
-      this.setState({
-        email: e.target.value,
-      });
-    } else {
-      alert("이메일에 문제가 있습니다");
-    }
-  }
+  // emailCheck(e) {
+  //   e.preventDefault();
+
+  //   if( this.state.userName &&
+  //     this.state.id &&
+  //     this.state.password &&
+  //     this.state.email !== ""){
+  //       if (ifEmail === this.state.email) {
+  //         return true;
+  //       } else {
+  //         return false;
+  //       }
+  //   } else {
+
+  //   }
+
+  // }
 
   handleFormSubmit(e) {
     e.preventDefault(); //오류없이 이벤트 전파(새로고침 방지)
+
+    const ifEmail = /^[0-9a-zA-Z]*@[0-9a-zA-Z]*(.[a-zA-Z]{2,3})*/;
+    const ifPass = /^[0-9a-zA-Z]{8,}/;
+
+    var chkEmail = ifEmail.test(this.state.email);
+    var chkPassword = ifPass.test(this.state.password);
+
     if (
       this.state.userName &&
       this.state.id &&
       this.state.password &&
       this.state.email !== ""
     ) {
-      alert("회원가입 되었습니다.");
-      this.addUser().then(this.props.history.push("/")); //회원가입 후 다시 홈으로 이동시켜줌.
+      if (chkPassword) {
+        if (chkEmail) {
+          // if(id != this.state.id){
+          alert("회원가입 되었습니다.");
+          const passwordHash = bcrypt.hashSync(this.state.password, 10);
+          this.state.password = passwordHash;
+          this.addUser().then(this.props.history.push("/")); //회원가입 후 다시 홈으로 이동시켜줌.
+          // } else {
+          //   alert("아이디가 중복 됩니다.");
+          // }
+        } else {
+          alert("이메일 형식을 확인하세요");
+        }
+      } else {
+        alert("비밀번호 8자리 이상 입력하세요");
+      }
     } else {
       alert("칸에 문제가 있습니다. 정확하게 입력해주세요.");
     }
@@ -66,6 +92,14 @@ class RegisterAdd extends React.Component {
     nextState[e.target.name] = e.target.value; //name값은 해당 jsx input태그에 있는 name값임. 그리고 그 value값이 변경시 맨 위에서 선언한 state에게 값을 전달.
     this.setState(nextState); // nextState를 이용해 값을 갱신함.
   }
+
+  // ValueChangePassword(e) {
+  //   e.preventDefault();
+  //   const passwordHash = bcrypt.hashSync(e.target.value, 10);
+  //   let passwordChange = {};
+  //   passwordChange[e.target.name] = passwordHash;
+  //   this.setState(passwordChange);
+  // }
 
   addUser() {
     const url = "/api/Register";
@@ -126,7 +160,7 @@ class RegisterAdd extends React.Component {
               onChange={this.handleValueChange}
               className="name"
             />
-            <p>{t("비밀번호")}</p>
+            <p>{t("비밀번호 (8자리 이상)")}</p>
             <input
               type="password"
               name="password"
@@ -139,7 +173,7 @@ class RegisterAdd extends React.Component {
               type="text"
               name="email"
               value={this.state.email}
-              onChange={this.handleEmail}
+              onChange={this.handleValueChange}
               className="name"
             />
             <button type="submit" className="submitBtn">

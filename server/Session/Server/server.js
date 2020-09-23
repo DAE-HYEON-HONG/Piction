@@ -16,6 +16,8 @@ const log4js = require("log4js");
 
 app.use(express.json());
 
+const fileUpload = require("express");
+
 const connection = mysql.createConnection({
   host: conf.host,
   user: conf.user,
@@ -25,7 +27,7 @@ const connection = mysql.createConnection({
 });
 connection.connect();
 
-app.post("/api/Login", (req, res) => {
+app.post("/api/LoginInfo", (req, res) => {
   connection.query("SELECT * FROM user_data WHERE ?", (err, rows, fields) => {
     res.send(rows);
   });
