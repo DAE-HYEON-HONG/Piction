@@ -1,3 +1,4 @@
+import { throws } from "assert";
 import React, { Component } from "react";
 import { withTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
@@ -63,14 +64,16 @@ class LoginDesign extends Component {
                 placeholder="ID"
                 className="Id"
                 name="id"
-                value={this.handleId}
+                value={this.state.id}
+                onChange={this.ValueChange}
               />
               <input
                 type="password"
                 placeholder="PASSWORD"
                 className="Password"
                 name="password"
-                value={this.ValueChange}
+                value={this.state.password}
+                onChange={this.ValueChange}
               />
             </div>
             <button type="submit">{t("로그인")}</button>

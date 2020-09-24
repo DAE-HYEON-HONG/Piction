@@ -19,28 +19,7 @@ class RegisterAdd extends React.Component {
     this.handleFileChange = this.handleFileChange.bind(this);
     this.handleValueChange = this.handleValueChange.bind(this);
     this.addUser = this.addUser.bind(this);
-    // this.ValueChangePassword = this.ValueChangePassword.bind(this);
-    // this.emailCheck = this.emailCheck.bind(this);
   }
-
-  //이건 이메일 정규화 표현 할려고 하다 아직 덜 만들어짐.
-  // emailCheck(e) {
-  //   e.preventDefault();
-
-  //   if( this.state.userName &&
-  //     this.state.id &&
-  //     this.state.password &&
-  //     this.state.email !== ""){
-  //       if (ifEmail === this.state.email) {
-  //         return true;
-  //       } else {
-  //         return false;
-  //       }
-  //   } else {
-
-  //   }
-
-  // }
 
   handleFormSubmit(e) {
     e.preventDefault(); //오류없이 이벤트 전파(새로고침 방지)
@@ -61,6 +40,7 @@ class RegisterAdd extends React.Component {
         if (chkEmail) {
           // if(id != this.state.id){
           alert("회원가입 되었습니다.");
+
           const passwordHash = bcrypt.hashSync(this.state.password, 10);
           this.state.password = passwordHash;
           this.addUser().then(this.props.history.push("/")); //회원가입 후 다시 홈으로 이동시켜줌.
