@@ -40,9 +40,6 @@ class RegisterAdd extends React.Component {
         if (chkEmail) {
           // if(id != this.state.id){
           alert("회원가입 되었습니다.");
-
-          const passwordHash = bcrypt.hashSync(this.state.password, 10);
-          this.state.password = passwordHash;
           this.addUser().then(this.props.history.push("/")); //회원가입 후 다시 홈으로 이동시켜줌.
           // } else {
           //   alert("아이디가 중복 됩니다.");

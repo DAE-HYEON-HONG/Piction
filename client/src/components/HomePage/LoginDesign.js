@@ -1,9 +1,7 @@
-import { throws } from "assert";
 import React, { Component } from "react";
 import { withTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import App from "../../App.js";
-import RegisterAdd from "../HomePage/RegisterAdd.js";
+import axios from "axios";
 
 class LoginDesign extends Component {
   constructor(props) {
@@ -40,13 +38,36 @@ class LoginDesign extends Component {
   handleSubmit(e) {
     e.preventDefault(); //오류없이 이벤트 전파(새로고침 방지)
     if (this.state.id && this.state.password !== "") {
-      alert("로그인 되었습니다.");
-      this.addUser() // axios로 정보보낼 곳. 아직 작성 안됨.
-        .then(this.props.history.push("/"));
+      this.UserChk(); // axios로 정보보낼 곳. 아직 작성 안됨.
     } else {
       alert("빈칸이 있습니다. 모두 입력해주세요.");
     }
   }
+
+  UserChk = async () => {
+    const url = "/api/LoginInfo";
+    const formData = new FormData();
+    formData.append("id", this.state.id);
+    formData.append("password", this.state.password);
+    const config = {
+      headers: {
+        "content-type": "multipart/form-data", //간단하게 적을려고 multer사용
+      },
+    };
+
+    try {
+      const res = await axios({
+        method: "post",
+        url,
+        data: formData,
+        headers: config,
+      });
+
+      console.log(res);
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   render() {
     const { t } = this.props;

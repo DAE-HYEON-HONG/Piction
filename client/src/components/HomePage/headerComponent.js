@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import logo from "../img/logo.png";
 import UserIco from "../img/ICON_User.png";
 import ArrowDown from "../img/ICON_Arrow-Down.png";
-import { useTranslation, initReactI18next } from "react-i18next";
+import { useTranslation } from "react-i18next";
 import "../language/i18n.js";
-import { Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import LoginDesign from "./LoginDesign";
 
 function HeaderComponent() {
