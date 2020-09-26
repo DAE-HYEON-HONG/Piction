@@ -33,7 +33,8 @@ app.post("/api/LoginInfo", upload.none(), (req, res) => {
 
   console.log(id);
   console.log(password);
-  connection.query(`SELECT * FROM user_data WHERE ${id}=? `, (err, result) => {
+  connection.query(`SELECT * FROM user_data WHERE id=${id} `, (err, result) => {
+    console.log(result);
     if (err) {
       console.log(`에러코드는 ${err}`);
     } else {
@@ -52,12 +53,10 @@ app.post("/api/LoginInfo", upload.none(), (req, res) => {
           console.log("비밀번호 불일치");
         } else {
           res.json({ success: true });
+          alert("로그인 성공");
         }
       }
     }
-
-    const user = result[0];
-    const matched = bcrypt.compareSync(password, password);
   });
 });
 
@@ -76,7 +75,7 @@ app.post("/api/Register", upload.none(), (req, res) => {
 
   // eslint-disable-next-line no-unused-vars
   const query = connection.query(
-    `insert into user_data (name, id, email, password) values ("${name} "," ${id} "," ${email} "," ${passwordHash}")`,
+    `insert into user_data (name, id, email, password) values ("${name}","${id}","${email}","${passwordHash}")`,
     function (err, rows) {
       if (err) {
         console.error(
