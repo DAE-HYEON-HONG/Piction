@@ -33,31 +33,34 @@ app.post("/api/LoginInfo", upload.none(), (req, res) => {
 
   console.log(id);
   console.log(password);
-  connection.query(`SELECT * FROM user_data WHERE id=${id} `, (err, result) => {
-    console.log(result);
-    if (err) {
-      console.log(`에러코드는 ${err}`);
-    } else {
-      if (result.length === 0) {
-        res.json({
-          success: false,
-          msg: "해당 유저의 아이디 또는 비밀번호가 일치하지 않습니다.",
-        });
-        console.log("아이디 불일치");
+  connection.query(
+    `SELECT * FROM user_data WHERE id='${id}' `,
+    (err, result) => {
+      console.log(result);
+      if (err) {
+        console.log(`에러코드는 ${err}`);
       } else {
-        if (!bcrypt.compareSync(password, result[0].password)) {
+        if (result.length === 0) {
           res.json({
             success: false,
             msg: "해당 유저의 아이디 또는 비밀번호가 일치하지 않습니다.",
           });
-          console.log("비밀번호 불일치");
+          console.log("아이디 불일치");
         } else {
-          res.json({ success: true });
-          alert("로그인 성공");
+          if (!bcrypt.compareSync(password, result[0].password)) {
+            res.json({
+              success: false,
+              msg: "해당 유저의 아이디 또는 비밀번호가 일치하지 않습니다.",
+            });
+            console.log("비밀번호 불일치");
+          } else {
+            res.json({ success: true });
+            console.log("로그인 성공");
+          }
         }
       }
     }
-  });
+  );
 });
 
 app.post("/api/Register", upload.none(), (req, res) => {
