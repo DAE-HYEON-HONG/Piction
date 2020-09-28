@@ -11,6 +11,7 @@ const env = process.env.NODE_ENV || "development";
 const conf = require(path.join(__dirname, ".", "config", "db.json"))[env];
 const log4js = require("log4js");
 const bcrypt = require("bcryptjs");
+const AWS = require("aws-sdk");
 
 app.use(express.json());
 app.use(bodyParser.json());
@@ -26,6 +27,11 @@ const connection = mysql.createConnection({
   database: conf.database,
 });
 connection.connect();
+
+async function uploadImage(req, res) {
+  const file = req.files.file;
+  AWS.config;
+}
 
 app.post("/api/LoginInfo", upload.none(), (req, res) => {
   let id = req.body.id;
@@ -55,6 +61,7 @@ app.post("/api/LoginInfo", upload.none(), (req, res) => {
             console.log("비밀번호 불일치");
           } else {
             res.json({ success: true });
+            sesstion;
             console.log("로그인 성공");
           }
         }
