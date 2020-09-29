@@ -1,7 +1,6 @@
 import React from "react";
 import axios from "axios";
 import { withTranslation } from "react-i18next";
-import bcrypt from "bcryptjs";
 
 class RegisterAdd extends React.Component {
   // const {t} = useTranslation();
@@ -18,17 +17,16 @@ class RegisterAdd extends React.Component {
     this.handleFormSubmit = this.handleFormSubmit.bind(this); //자바스크립트는 최상위와 연결시켜버려서 bind를 이용해 이벤트를 의미한다는 말.
     this.handleFileChange = this.handleFileChange.bind(this);
     this.handleValueChange = this.handleValueChange.bind(this);
-    this.addUser = this.addUser.bind(this);
   }
 
-  handleFormSubmit(e) {
+  handleFormSubmit =  async (e) => {
     e.preventDefault(); //오류없이 이벤트 전파(새로고침 방지)
 
     const ifEmail = /^[0-9a-zA-Z]*@[0-9a-zA-Z]*(.[a-zA-Z]{2,3})*/;
     const ifPass = /^[0-9a-zA-Z]{8,}/;
 
-    var chkEmail = ifEmail.test(this.state.email);
-    var chkPassword = ifPass.test(this.state.password);
+    let chkEmail = ifEmail.test(this.state.email);
+    let chkPassword = ifPass.test(this.state.password);
 
     if (
       this.state.userName &&
@@ -38,12 +36,32 @@ class RegisterAdd extends React.Component {
     ) {
       if (chkPassword) {
         if (chkEmail) {
-          // if(id != this.state.id){
-          alert("회원가입 되었습니다.");
-          this.addUser().then(this.props.history.push("/")); //회원가입 후 다시 홈으로 이동시켜줌.
-          // } else {
-          //   alert("아이디가 중복 됩니다.");
-          // }
+          const url = "/api/Register";
+          const formData = new FormData();
+          formData.append("image", this.state.file);
+          formData.append("name", this.state.userName);
+          formData.append("id", this.state.id);
+          formData.append("email", this.state.email);
+          formData.append("password", this.state.password);
+          formData.append("image", this.state.profileImg);
+          const config = {
+            headers: {
+              "content-type": "multipart/form-data", //파일이 포함되어 있어서 multipart 사용 (단 multibody는 axios에서 지원하지 않음 multer사용필수!)
+            },
+          };
+          try{
+            const res = await axios.post(url, formData, config);
+            if (res.data.SignSuccess) {
+              alert("회원가입 되었습니다.");
+              this.props.history.push("/");
+            } else {
+              alert("아이디 값이 중복됩니다.");
+            }
+            console.log(res.data.SignSuccess);
+          }catch (e) {
+              console.log(e);
+          }
+          // return post(url, formData, config)}
         } else {
           alert("이메일 형식을 확인하세요");
         }
@@ -70,42 +88,7 @@ class RegisterAdd extends React.Component {
     this.setState(nextState); // nextState를 이용해 값을 갱신함.
   }
 
-  // ValueChangePassword(e) {
-  //   e.preventDefault();
-  //   const passwordHash = bcrypt.hashSync(e.target.value, 10);
-  //   let passwordChange = {};
-  //   passwordChange[e.target.name] = passwordHash;
-  //   this.setState(passwordChange);
-  // }
 
-  addUser() {
-    const url = "/api/Register";
-    const formData = new FormData();
-    formData.append("image", this.state.file);
-    formData.append("name", this.state.userName);
-    formData.append("id", this.state.id);
-    formData.append("email", this.state.email);
-    formData.append("password", this.state.password);
-    formData.append("image", this.state.profileImg);
-    const config = {
-      headers: {
-        "content-type": "multipart/form-data", //파일이 포함되어 있어서 multipart 사용 (단 multibody는 axios에서 지원하지 않음 multer사용필수!)
-      },
-    };
-    // return post(url, formData, config)}
-    return axios({
-      method: "post",
-      url,
-      data: formData,
-      headers: config,
-    })
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((res) => {
-        console.log(res);
-      });
-  }
 
   render() {
     const { t } = this.props;
