@@ -9,6 +9,7 @@ class LoginDesign extends Component {
     this.state = {
       id: "",
       password: "",
+      name: ""
     };
     this.ValueChange = this.ValueChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -18,20 +19,6 @@ class LoginDesign extends Component {
     let nextChange = {};
     nextChange[e.target.name] = e.target.value;
     this.setState(nextChange);
-  }
-
-  handleId(e) {
-    e.preventDefault();
-    this.setState({
-      id: e.target.value,
-    });
-  }
-
-  handlePw(e) {
-    e.preventDefault();
-    this.setState({
-      password: e.target.value,
-    });
   }
 
   handleSubmit = async (e) => {
@@ -52,11 +39,12 @@ class LoginDesign extends Component {
 
         if (res.data.success) {
           alert("로그인 되었습니다.");
+          alert(this.state.hashPassword);
+          this.onLogin();
           window.sessionStorage.setItem(
             "login_info",
-            JSON.stringify(this.state)
-          );
-          this.props.history.push("/");
+            JSON.stringify(this.state.id)
+          ); // 세션스토리지 저장 시 사용자가 입력한 암호를 다시 암호화 하여 보안 유지
         } else {
           alert("비밀번호 또는 아이디가 일치하지 않습니다.");
         }
@@ -75,8 +63,16 @@ class LoginDesign extends Component {
   }
 
   render() {
-    const { t } = this.props;
-    // const [login, logout] = useState(false);
+    const { t } = this.props
+    const isLogged = true; //this.props.loggedIn props값을 받지 못함.. logged.js 참조. export가 안됨.
+    console.log(isLogged);
+    let button = null
+    if(isLogged === true){
+      button = <button type="submit">{t("로그인")}</button>;
+    }else{
+      button = <button onClick={this.handleLocalClear}>{t("로그아웃")}</button>;
+    }
+    console.log(button);
     return (
       <div className="Login-Container">
         <div className="loginOutSize">
@@ -103,8 +99,7 @@ class LoginDesign extends Component {
                 onChange={this.ValueChange}
               />
             </div>
-            <button type="submit">{t("로그인")}</button>
-            <button onClick={this.handleLocalClear}>{t("로그아웃")}</button>
+            {button}
             <div className="signUp-Container">
               <span>
                 {t("계정이 없으신가요?")}

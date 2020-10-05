@@ -12,6 +12,7 @@ const conf = require(path.join(__dirname, ".", "config", "db.json"))[env];
 const log4js = require("log4js");
 const bcrypt = require("bcryptjs");
 const AWS = require("aws-sdk");
+const awsUser = require(path.join(__dirname, ".", "config", "awsConfig.json"))[env];
 
 app.use(express.json());
 app.use(bodyParser.json());
@@ -27,6 +28,10 @@ const connection = mysql.createConnection({
   database: conf.database,
 });
 connection.connect();
+
+//aws 자격증명
+// const ID = awsUser.accessKeyId;
+// const SECRET = awsUser.
 
 // async function uploadImage(req, res) {
 //   const file = req.files.file;
@@ -47,26 +52,30 @@ app.post("/api/LoginInfo", upload.none(), (req, res) => {
         if (err) {
           console.log(`에러코드는 ${err}`);
         } else {
-          if (result.length === 0) {
-            res.json({
-              success: false,
-              msg: "해당 유저의 아이디 또는 비밀번호가 일치하지 않습니다.",
-            });
-            console.log("아이디 불일치");
+          if (typeof password !== "string"){
+            alert('비밀번호가 문자가 아닙니다. 다시 입력해주십시오.');
           } else {
-            if (!bcrypt.compareSync(password, result[0].password)) {
+            if (result.length === 0) {
               res.json({
                 success: false,
                 msg: "해당 유저의 아이디 또는 비밀번호가 일치하지 않습니다.",
               });
-              console.log("비밀번호 불일치");
+              console.log("아이디 불일치");
             } else {
-              console.log("로그인 성공");
-              // res.json({});
-              res.json({
-                success: true,
-                msg: "로그인 성공.",
-              });
+              if (!bcrypt.compareSync(password, result[0].password)) {
+                res.json({
+                  success: false,
+                  msg: "해당 유저의 아이디 또는 비밀번호가 일치하지 않습니다.",
+                });
+                console.log("비밀번호 불일치");
+              } else {
+                console.log("로그인 성공");
+                // res.json({});
+                res.json({
+                  success: true,
+                  msg: "로그인 성공.",
+                });
+              }
             }
           }
         }
@@ -109,7 +118,7 @@ app.post("/api/Register", upload.none(), (req, res) => {
                     }
                     console.log("데이터가 삽입되었습니다.");
                     res.json({
-                      SignSuccess: true,
+                      SignSuccess: true,s
                     });
                   }
               );

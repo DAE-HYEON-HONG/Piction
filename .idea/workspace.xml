@@ -1,18 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c75e7be2-e945-4035-b9e1-f6572a7a5cd0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="c75e7be2-e945-4035-b9e1-f6572a7a5cd0" name="Default Changelist" comment="회원가입 아이디 중복 기능 추가">
+      <change afterPath="$PROJECT_DIR$/../.idea/완벽한 과제.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/john4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/logged/logged.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/Session/Server/Controller/controller.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/Session/Server/Route/Route.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/Session/Server/config/awsConfig.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/HomePage/GenrePage/Illust.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/HomePage/GenrePage/Illust.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/HomePage/LoginDesign.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/HomePage/LoginDesign.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/HomePage/RegisterAdd.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/HomePage/RegisterAdd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/client/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/Session/Server/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/Session/Server/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -26,6 +41,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -35,6 +51,11 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="K:\리액트 공부용\완벽한 과제\hello-react\client\src\components" />
+    </key>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -51,11 +72,40 @@
       <workItem from="1601273002577" duration="3000" />
       <workItem from="1601279319839" duration="11000" />
       <workItem from="1601279382813" duration="1661000" />
-      <workItem from="1601291030514" duration="4738000" />
+      <workItem from="1601291030514" duration="5734000" />
+      <workItem from="1601344674851" duration="15855000" />
+      <workItem from="1601859549151" duration="5968000" />
+      <workItem from="1601871298933" duration="5298000" />
     </task>
+    <task id="LOCAL-00001" summary="회원가입 아이디 중복 기능 추가">
+      <created>1601340544780</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1601340544780</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="회원가입 아이디 중복 기능 추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="회원가입 아이디 중복 기능 추가" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="497" y="0" key="CommitChangelistDialog2" timestamp="1601340603667">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="497" y="0" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1601340603667" />
+    <state x="437" y="190" key="IDE.errors.dialog" timestamp="1601864271695">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="437" y="190" key="IDE.errors.dialog/0.0.1920.1040@0.0.1920.1040" timestamp="1601864271695" />
+    <state x="452" y="182" key="Vcs.Push.Dialog.v2" timestamp="1601340546457">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="452" y="182" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1601340546457" />
   </component>
 </project>
