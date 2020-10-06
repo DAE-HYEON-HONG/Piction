@@ -64,13 +64,13 @@ class LoginDesign extends Component {
 
   render() {
     const { t } = this.props
-    const isLogged = true; //this.props.loggedIn props값을 받지 못함.. logged.js 참조. export가 안됨.
+    const isLogged = this.props.isLogged; //props값을 받지 못함.. logged.js 참조. export가 안됨.
     console.log(isLogged);
-    let button = null
-    if(isLogged === true){
-      button = <button type="submit">{t("로그인")}</button>;
-    }else{
+    let button = null;
+    if(!isLogged){
       button = <button onClick={this.handleLocalClear}>{t("로그아웃")}</button>;
+    }else{
+      button = <button type="submit">{t("로그인")}</button>;
     }
     console.log(button);
     return (

@@ -6,10 +6,14 @@ import { useTranslation } from "react-i18next";
 import "../language/i18n.js";
 import { Link } from "react-router-dom";
 import LoginDesign from "./LoginDesign";
+import isLogged from "../logged/logged";
 
 function HeaderComponent() {
-  const [open, setOpen] = useState(false); //useState상태관리를 이용하여 open과 setOpen를 선언하고 기본값은 false로 나타나지 않음을 표현
+  const [open, setOpen] = useState(false);
+  //const [isLogged] = useState(true);//useState상태관리를 이용하여 open과 setOpen를 선언하고 기본값은 false로 나타나지 않음을 표현\
+  // const isLogged = this.props.loggedIn;
   const { t } = useTranslation();
+
   return (
     <div className="nav-container">
       <div className="firstMenu">
@@ -62,7 +66,7 @@ function HeaderComponent() {
                   onClick={() => setOpen(!open)} //클릭이벤트
                 />
               </Link>
-              {open && <LoginDesign />}
+              {open && <LoginDesign isLogged={isLogged} />}
             </div>
             <input type="text" placeholder={t("searchBox")} />
             <select name="#" id="#">

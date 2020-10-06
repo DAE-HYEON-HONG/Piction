@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import LoginDesign from "../HomePage/LoginDesign";
+import HeaderComponent from "../HomePage/headerComponent";
 
 class logged extends Component {
     constructor(props) {
@@ -37,5 +39,8 @@ class logged extends Component {
         this.initUserInfo();
     }
 
+    render() {
+        return <headerComponent loggedIn={this.state.loggedIn} />
+    }
 }
 export default logged;
